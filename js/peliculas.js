@@ -7,18 +7,22 @@ let requestOptions = {
     redirect: 'follow'
 };
 let listaCategorias = new Array();
-
-generarCategoriasJSON(); //Se ejecuta al principio para que aparezcan las categoría
-
 let paginaActual = 1;
 let paginasTotales = 1;
 let categoriaActual = 0;
 
+generarCategoriasJSON(); //Se ejecuta al principio para que aparezcan las categoría
+
+
+
 //Controlar el final de la página para carga progresiva...
 window.onscroll = function (ev) {
     if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-        paginaActual++;
-        if (paginaActual <= paginasTotales && categoriaActual > 0) { generarPeliculasJSON(categoriaActual, paginaActual) }
+
+        if (paginaActual <= paginasTotales && categoriaActual > 0) {
+            paginaActual++;
+            generarPeliculasJSON(categoriaActual, paginaActual);
+        }
     }
     scrollFunction();
 };
@@ -28,6 +32,10 @@ window.onscroll = function (ev) {
 
 
 function generarCategoriasJSON() {
+    paginaActual = 1;
+    paginasTotales = 1;
+    categoriaActual = 0;
+    
     fetch("https://api.themoviedb.org/3/genre/movie/list?language=es", requestOptions)
         .then(response => response.json())
         .then(result => mostrarCategorias(result))
@@ -35,14 +43,16 @@ function generarCategoriasJSON() {
 }
 
 function generarPeliculasJSON(categoria, pagina) {
+    paginaActual=pagina;
+    categoriaActual=categoria;
     fetch(`https://api.themoviedb.org/3/discover/movie?language=es&with_genres=${categoria}&page=${pagina}`, requestOptions)
         .then(response => response.json())
-        .then(result => mostrarPeliculas(result))
+        .then(result => mostrarPeliculas(result, categoria))
         .catch(error => console.log('error', error));
 }
 
 
-function mostrarCategorias(resultados) {
+function mostrarCategorias(resultados, categoria) {
     listaCategorias = [];
     paginaActual = 1;
     padre = document.getElementById("contenido");
@@ -77,7 +87,7 @@ function mostrarCategorias(resultados) {
 
 
 //Motrar Peliculas
-function mostrarPeliculas(resultados) {
+function mostrarPeliculas(resultados, categoria) {
     paginasTotales = resultados.total_pages;
     padre = document.getElementById("contenido");
     if (paginaActual == 1) {
@@ -86,8 +96,8 @@ function mostrarPeliculas(resultados) {
         fila.classList.add("row", "row-cols-1", "justify-content-center");
         let cat = listaCategorias.find(obj => {
             return obj.id === categoriaActual
-          });
-        fila.innerHTML=`<h1 class="text-center">${cat.name}</h1>`;
+        });
+        fila.innerHTML = `<h1 class="text-center">${cat.name}</h1>`;
         padre.appendChild(fila);
     }
     fila = document.createElement("div");

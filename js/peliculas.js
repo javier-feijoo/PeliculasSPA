@@ -11,7 +11,7 @@ let paginaActual = 1;
 let paginasTotales = 1;
 let categoriaActual = 0;
 
-generarCategoriasJSON(); //Se ejecuta al principio para que aparezcan las categoría
+cargarPortadaJSON(); //Se ejecuta al principio para que aparezcan las categoría
 
 
 

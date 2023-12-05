@@ -248,7 +248,7 @@ function mostrarPortada(resultados) {
 }
 
 
-/* GESTIONAR LAS PELÍCULAS DE LA PORTADA */
+/* GESTIONAR LAS PELÍCULAS MEJOR VALORADAS */
 
 //Recoger datos de la categoría y página correspondiente para hacer petición API REST
 function generarTopJSON() {

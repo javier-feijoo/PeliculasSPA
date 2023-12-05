@@ -20,41 +20,43 @@
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark" data-bs-theme="dark">
-            <div class="container-fluid">
-                <a onclick="generarCategoriasJSON();" ;class="navbar-brand" href="#"><img src="img/logo.png"
-                        alt="Logo D'Pelis"></a>
+        <div class="fixed-top">
+            <nav class="navbar navbar-expand-lg bg-body-tertiary bg-header" data-bs-theme="dark">
+                <div class="container-fluid">
+                    <a onclick="generarCategoriasJSON();" ;class="navbar-brand" href="#"><img src="img/logo.png"
+                            alt="Logo D'Pelis" class="img-fluid"></a>
 
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="#">Inicio</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                                Categorías Populares
-                            </a>
-                            <ul id="menuCategorias" class="dropdown-menu">
-                                <!-- Este menú se carga automáticamente -->
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" aria-disabled="true">Créditos</a>
-                        </li>
-                    </ul>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="#">Inicio</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    Categorías Populares
+                                </a>
+                                <ul id="menuCategorias" class="dropdown-menu">
+                                    <!-- Este menú se carga automáticamente -->
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" aria-disabled="true">Créditos</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-        </nav>
+            </nav>
+        </div>
     </header>
 
-    <div id="contenido" class="container"> <!-- probar con container a secas ver diferencia -->
+    <div id="contenido" class="container"> <!-- probar con container-fluid ver diferencia -->
 
     </div>
 
@@ -86,10 +88,46 @@
         </div>
     </div>
 
+
+    <!--  PIE APP -->
+    <footer>
+        <div class="container-fluid fixed-bottom text-center p-2 bg-secondary bg-footer">
+            <div class="row row-cols-4">
+                <div class="col">
+                    <button onclick="cargarPortadaJSON();" type="button" class="btn bg-boton" title="INICIO">
+                        <i class="bi text-footer bi-house-fill"></i>
+                    </button>
+                </div>
+                <div class="col">
+                    <button onclick="generarCategoriasJSON();" type="button" class="btn bg-boton" title="CATEGORÍAS">
+                        <i class="bi text-footer bi-card-list"></i>
+                    </button>
+                </div>
+                <div class="col">
+                    <button onclick="generarTopJSON();"  type="button" class="btn bg-boton" title="MÁS VOTADAS">
+                        <i class="bi text-footer bi-star-fill"></i>
+                    </button>
+                </div>                
+                <div class="col">
+                    <button onclick="cargarCreditos();" type="button" class="btn bg-boton" title="CRÉDITOS APP">
+                        <i class="bi text-footer bi-info-square-fill"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+
     <!-- botón volver arriba -->
     <button type="button" class="btn btn-danger btn-floating btn-lg" id="btn-volver">
         <i class="bi bi-arrow-up-circle"></i>
     </button>
+
+
+
+
 
 
     <!-- Javascript ================================================== -->

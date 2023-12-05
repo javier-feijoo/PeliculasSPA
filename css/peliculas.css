@@ -1,7 +1,7 @@
-.card-img-top{
+.card-img-top {
     -webkit-transition: all .3s ease-in-out;
--moz-transition: all .3s ease-in-out;
-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
 }
 
 #btn-volver {
@@ -9,4 +9,55 @@ transition: all .3s ease-in-out;
     bottom: 20px;
     right: 20px;
     display: none;
-  }
+}
+
+body {
+    padding-top: 200px;
+    padding-bottom: 200px;
+}
+
+.botonFooter {
+    max-height: 125px !important;
+}
+
+.bg-header {
+    background-color: #020223 !important;
+}
+
+.bg-footer {
+    background-color: #0d0f35 !important;
+}
+
+.bg-boton {
+    color: #151d52 !important;
+}
+
+.text-footer {
+    color: #c4d1ea !important;
+    font-size: 2rem;
+}
+
+.iconoCategoria {
+    max-width: 25% !important;
+}
+
+.filaPortada {
+    max-height: 300px;
+    bottom: 100px;
+}
+
+.divCaption {    
+    left: 0px !important;
+    right: 0px !important;
+}
+
+.captionCarousel {
+    font-size: 200% !important;
+    background-color: rgba(0, 0, 0, 0.415);
+    width: 100% !important;
+    padding: 20px;
+}
+.imgCarousel {
+    max-height: 500px !important;
+    overflow: hidden;
+}
